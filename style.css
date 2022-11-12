@@ -1,0 +1,322 @@
+*{
+	background-color:#e0e0d1;
+   font-family:arial;
+   color: black;
+}
+.top{
+	margin-left: 250px;
+	background-color: #ff80b3;
+}
+.type{
+	background-color: #e0e0d1;
+}
+h2{
+	text-align: center;
+}
+.h{
+	border:2px white solid;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: white;
+	color:#ff80b3;
+}
+a{
+	background-color: #ff80b3;
+	padding: 14px;
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+}
+nav{
+	background-color:#ff80b3;
+	width: 1348px;
+	height:64px;
+   margin-top: -10px;
+   margin-left:-10px;
+   text-align:right;
+   padding:10px;
+   }
+.logo{
+	color: white;
+	background-color: #ff80b3; 
+    font-size:30px;
+    float: left;
+    margin-top:-1px;
+    font-weight: bold;
+    margin-right: 30px;
+}
+li{
+	display: inline-block;
+	margin-top: -1px;
+}
+.product{
+	display:inline-block;
+	border:2px black;
+	size:300px;
+	padding: 40px;
+}
+.product1{
+	display:inline-block;
+	border:2px black;
+	size:300px;
+    padding: 40px;
+    margin-left: -330px;
+}
+.addcart,.addcart1,.addcart2,.addcart3{
+	background-color: #ff80b3;
+    color:white;
+    border-radius: 2px;
+    padding: 10px;
+    margin-left:100px;
+    text-decoration: none;
+}
+#num{
+	background-color: white;
+	display: inline-block;
+	padding-right: 0px;
+	border:2px white solid;
+	border-radius: 5px;
+    color: #ff80b3;
+}
+.names{
+	color: black;
+}
+img{
+	border-radius: 10px;
+	border-color:2px #ff80b3 solid;
+	width:300px;
+	height: 300px;
+}
+.price{
+	background-color: #c799ab;
+	font-size: 20px;
+	font-family: Helevicta;
+	padding: 10px;
+	text-align: center;
+	width: 300px;
+	border-radius: 2px;
+	color: white;
+}
+.productNames{
+	border-bottom: 2px solid #c799ab;
+	bottom:0;
+}
+.add{
+	padding: 20px;
+	background-color: #ff80b3;
+    color:white;
+    border-radius: 2px;
+    margin-left:20px;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#tit{
+	padding-right: 265px;
+	display: inline-block;
+	padding-left: 20px;
+}
+
+#art,#year,#popularity{
+	display: inline-block;
+	padding-left: 45px; 
+}
+
+
+#year{
+	padding-left: 90px;
+}
+
+#gen{
+	padding-left:45px;
+	display: inline-block;
+}
+
+
+#titleHead{
+	background-color: #e0e0d1; 
+    color:black;
+	font-size: 16px;
+	font-weight: bold;
+	font-family:arial;
+}
+
+.names{
+	display: inline-block;
+	margin-left: 120px;
+	width: 200px;
+	margin-top: 10px;
+	padding-bottom: 30px;
+}
+.quantityy{
+	display: inline-block;
+	margin-left: 120px;
+    top:0;
+}
+.totall{
+	display: inline;
+	margin-left: 100px;
+}
+.costt{
+	display: inline;
+	margin-left: 190px;
+}
+.orderTotal{
+	float: bottom;
+	border-top:2px pink;
+	margin-left: 120px;
+	border-bottom: 2px solid #c799ab;
+	border-top:2px solid #c799ab; 
+	font-size: 20px;
+}
+.totalPrice{
+	margin-top: 250px;
+	display: inline-block;
+	border-top-color:pink;
+	margin-left:620px; 
+	border-bottom: 2px solid #c799ab;
+	border-top:2px solid #c799ab;
+	font-size: 20px;
+}
+.types{
+	margin-top: 20px;
+}
+.type{
+	display: inline-block;
+}
+footer{
+	 background-color:#ff80b3;
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     height: 60px;
+   margin-left:-10px;
+   text-align:left;
+   padding:10px;
+   color:white;
+}
+p{
+	background-color: #ff80b3;
+	color:white;
+	float: bottom;
+}
+a{
+	padding-top: 0;
+	margin-top:0;
+}
+.button{
+   background-color:black; 
+   color:white; 
+   padding:10px;
+   border-color:black; 
+   font-size:20px;
+}
+
+
+.productRecord{
+	overflow-y: scroll;
+}
+
+
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+  }
+  
+  .song-search {
+	flex: 25%;
+	border-right: 2px solid #c799ab;
+	padding-left: 10px;
+	overflow:hidden;
+  }
+  
+  .productRecord {
+	flex: 70%;
+	overflow:auto;
+	height:500px;
+  }
+  
+  @media (max-width: 800px) {
+	.productRecord, .song-search {
+	  flex: 100%;
+	}
+  }
+
+  input{
+	font-size: 22px;
+	background-color: #B8B8B8;
+    border:none;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	margin-left:10px;
+}
+
+#clear,#filter{
+	margin-left: 30px;
+padding-left: 40px;
+margin-right: 20px;
+padding-right: 40px;
+}
+
+#title{
+margin-left: 25px;
+}
+
+#artist{
+	margin-left: 18px;
+	}
+
+	#snackbar {
+		visibility: hidden;
+		min-width: 250px;
+		margin-left: -125px;
+		background-color: #333;
+		color: #fff;
+		text-align: center;
+		border-radius: 2px;
+		padding: 16px;
+		position: fixed;
+		z-index: 1;
+		left: 50%;
+		bottom: 30px;
+		font-size: 17px;
+	  }
+	  
+	  #snackbar.show {
+		visibility: visible;
+		-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	  }
+	  
+	  @-webkit-keyframes fadein {
+		from {bottom: 0; opacity: 0;} 
+		to {bottom: 30px; opacity: 1;}
+	  }
+	  
+	  @keyframes fadein {
+		from {bottom: 0; opacity: 0;}
+		to {bottom: 30px; opacity: 1;}
+	  }
+	  
+	  @-webkit-keyframes fadeout {
+		from {bottom: 30px; opacity: 1;} 
+		to {bottom: 0; opacity: 0;}
+	  }
+	  
+	  @keyframes fadeout {
+		from {bottom: 30px; opacity: 1;}
+		to {bottom: 0; opacity: 0;}
+	  }
+
+	.select{
+		margin-bottom: -10px;
+	}
+
+	.ProductSpace{
+		table-layout: fixed;
+	}
+
+	canvas {
+		max-height: 100%;
+	  }

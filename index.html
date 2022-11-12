@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+
+    <title>Music Player</title>
+  </head>
+  <body>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="artists.json"></script>
+    <script src="genres.json"></script>
+    <script>
+        const art = JSON.parse(artists);
+        const gen = JSON.parse(genres);</script>
+        
+    <div class="flex-container" id="browse">   
+
+      <header>
+        <nav class="topnav">
+                <li><a href="#">Playlist</a></li>
+          <li><a href="#">Credits</a></li>
+            </nav>
+            
+      </header>
+
+        <div class="song-search">
+          <h2 id="search">Basic Song Search</h2>
+          <form>
+          <input type="radio" name="opt" value="title" checked />Title<input type="text" name="title" maxlength="50" size="20px" id="title"/></br>
+	        <input type="radio" name="opt" value="artist"/>Artist<input type="text" name="artist" maxlength="50" size="20px" id="artist"/></br>
+	        <input type="radio" name="opt" value="genre"/>Genre<input type="text" name="genre" maxlength="50" size="20px" id="genre"/></br>
+          <button id="clear" class="add" type="button" onclick="removeFilter()">Clear</button>
+          <button id="filter" class="add" type="button" onclick="songFilter()">Filter</button>
+          </form>
+        </div>
+
+<div class="productRecord">
+    <div class="productNames">
+      <h3 class="thHead" id="tit">Title</h3>
+      <h3 class="thHead" id="art">Artist</h3>
+      <h3 class="thHead" id="year">Year</h3>
+      <h3 class="thHead" id="gen">Genre</h3>
+      <h3 class="thHead" id="popularity">Popularity</h3>
+      <input type="button" class="add" value="ADD" onclick="snackbar()"/>
+    </div>
+    <div class="d-flex justify-content-center">
+    <div class="spinner-border" 
+                 role="status" id="loading">
+                <span class="sr-only">Loading...</span></div></div>
+    <table id="ProductSpace"></table>
+</div></div> 
+<div id="snackbar">Songs Added to the Playlist...</div>
+<div id="singleSong" class="flex-container" style="display:none">
+    <header>
+      <nav class="topnav">
+              <li><a href="#" onclick="return radarChart('browse','singleSong');">Close View</a></li>
+        <li><a href="#">Credits</a></li>
+          </nav>
+          
+    </header>
+    <div class="song-search">
+      <h2 id="search">Song Information</h2>
+      <div id="info"></div>
+    </div>
+    <div class="productRecord">
+<canvas id="radarChart" width="1000" height="400"></canvas></div>
+</div>
+
+<footer>
+    <li><a href="Contact Us.html">Conatct Us</a></li>
+    <li><a href="privacy policy.html">Privacy Policy</a></li>
+    <br><br>
+    <p style="text-align:center;">©2022 MUSIC PLAYER</p>
+    
+    </footer>
+    <script type="text/javascript" src="index.js" async></script>
+  </body>
+</html>
