@@ -25,7 +25,7 @@
 
       <header>
         <nav class="topnav">
-                <li><a href="#" onclick="radarChart('playlist','browse'); play();">Playlist</a></li>
+                <li><a href="#" onclick="radarChart('playlist','browse'); show(data,'play');">Playlist</a></li>
           <li><a href="#">Credits</a></li>
             </nav>
             
@@ -92,7 +92,7 @@
   <h3 class="thHead" id="year">Year</h3>
   <h3 class="thHead" id="gen">Genre</h3>
   <h3 class="thHead" id="popularity">Popularity</h3>
-  <input type="button" class="add" value="ADD" />
+  <input type="button" class="add" id='removeAdd' value="REMOVE" />
 </div>
 <table id="play"></table>
 </div>

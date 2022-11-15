@@ -27,10 +27,6 @@ async function getapi(api_url){
         document.getElementById('loading').style.display = 'none';
     }
 
-    function play(){
-      show(data,'play');
-    }
-
     function radarChart(shown, hidden) {
       document.getElementById(shown).style.display='flex';
       document.getElementById(hidden).style.display='none';
@@ -77,9 +73,8 @@ var radarChart = new Chart(marksCanvas, {
         <td width="9%"class='yea'>${r.year }</td> 
         <td width="145px">${r.genre.name }</td>
         <td width="11%" class='popular'>${r.details.popularity }</td>
-        <td><button class='select' name="select" onclick="snackbar(${r.song_id})">Add</buton></td>          
+        <td><button class='select' name="select" onclick="remove(${r.song_id})">Remove</buton></td>          
     </tr>`;
-    console.log(r);
   }
     else if(id!='play'){
       rec += `<tr id='songs'>
@@ -181,7 +176,7 @@ var radarChart = new Chart(marksCanvas, {
       var x = document.getElementById("snackbar");
       x.className = "show";
       setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-      playlist+=song_id;  }
+      playlist.push(song_id);  }
 
     function songFilter(){
       let fil=data.filter(check);
@@ -205,6 +200,14 @@ var radarChart = new Chart(marksCanvas, {
             return r.song_id;
       
     }}}
+  }
+
+  function remove(id){
+    for(let i=0;i<playlist.length;i++){
+      if(playlist[i]==id)
+      playlist.splice(i,1);
+    }
+      show(data,'play');
   }
 
     function removeFilter(){
