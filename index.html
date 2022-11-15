@@ -25,7 +25,7 @@
 
       <header>
         <nav class="topnav">
-                <li><a href="#">Playlist</a></li>
+                <li><a href="#" onclick="radarChart('playlist','browse'); play();">Playlist</a></li>
           <li><a href="#">Credits</a></li>
             </nav>
             
@@ -49,7 +49,7 @@
       <h3 class="thHead" id="year">Year</h3>
       <h3 class="thHead" id="gen">Genre</h3>
       <h3 class="thHead" id="popularity">Popularity</h3>
-      <input type="button" class="add" value="ADD" onclick="snackbar()"/>
+      <input type="button" class="add" value="ADD"/>
     </div>
     <div class="d-flex justify-content-center">
     <div class="spinner-border" 
@@ -74,9 +74,31 @@
 <canvas id="radarChart" width="1000" height="400"></canvas></div>
 </div>
 
+
+<div id="playlist" class="flex-container"  style="display:none">
+  <header>
+    <nav class="topnav">
+      <li><a href="#" onclick="return radarChart('browse','playlist');">Close View</a></li>
+      <li><a href="#">Credits</a></li>
+        </nav>
+        
+  </header>
+
+
+<div class="productRecor">
+<div class="productNames">
+  <h3 class="thHead" id="tit">Title</h3>
+  <h3 class="thHead" id="art">Artist</h3>
+  <h3 class="thHead" id="year">Year</h3>
+  <h3 class="thHead" id="gen">Genre</h3>
+  <h3 class="thHead" id="popularity">Popularity</h3>
+  <input type="button" class="add" value="ADD" />
+</div>
+<table id="play"></table>
+</div>
+</div>
+
 <footer>
-    <li><a href="Contact Us.html">Conatct Us</a></li>
-    <li><a href="privacy policy.html">Privacy Policy</a></li>
     <br><br>
     <p style="text-align:center;">©2022 MUSIC PLAYER</p>
     

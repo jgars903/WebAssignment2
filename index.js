@@ -27,13 +27,17 @@ async function getapi(api_url){
         document.getElementById('loading').style.display = 'none';
     }
 
+    function play(){
+      show(data,'play');
+    }
+
     function radarChart(shown, hidden) {
       document.getElementById(shown).style.display='flex';
       document.getElementById(hidden).style.display='none';
       return false;
     }
 
-
+   
 
     function page(r,artist,genre,year,duration,bpm,popularity,energy,danceability,liveness,valence,acousticness,speechiness,loudness){
       var minutes = Math.floor(duration / 60);
@@ -63,20 +67,32 @@ var radarChart = new Chart(marksCanvas, {
 });
  }
 
-    function show(data) {
+    function show(data,id) {
         let rec='';
-        
-        for (let r of data) {
-            rec += `<tr id='songs'>
+        for (let r of data) {   
+          if(id==='play'&& playlist.includes(r.song_id))     
+            {rec += `<tr id='songs'>
         <td width="365px"><a id='titleHead' href='#' onclick="radarChart('singleSong','browse'); page('${r.title}','${r.artist.name}','${r.genre.name}','${r.year}','${r.details.duration}','${r.details.bpm}','${r.details.popularity}','${r.analytics.energy}','${r.analytics.danceability}','${r.analytics.liveness}','${r.analytics.valence}','${r.analytics.acousticness}','${r.analytics.speechiness}','${r.details.loudness}');">${r.title.length > 46 ? r.title.substring(0,46) + "..."  :  r.title }</a>&nbsp&nbsp </td>
         <td width="145px" class="arti">${r.artist.name}</td>
         <td width="9%"class='yea'>${r.year }</td> 
         <td width="145px">${r.genre.name }</td>
         <td width="11%" class='popular'>${r.details.popularity }</td>
-        <td><input class='select' type="checkbox" name="select" value="on" onclick="snackbar('${r.title}')"></td>          
+        <td><button class='select' name="select" onclick="snackbar(${r.song_id})">Add</buton></td>          
     </tr>`;
+    console.log(r);
+  }
+    else if(id!='play'){
+      rec += `<tr id='songs'>
+        <td width="365px"><a id='titleHead' href='#' onclick="radarChart('singleSong','browse'); page('${r.title}','${r.artist.name}','${r.genre.name}','${r.year}','${r.details.duration}','${r.details.bpm}','${r.details.popularity}','${r.analytics.energy}','${r.analytics.danceability}','${r.analytics.liveness}','${r.analytics.valence}','${r.analytics.acousticness}','${r.analytics.speechiness}','${r.details.loudness}');">${r.title.length > 46 ? r.title.substring(0,46) + "..."  :  r.title }</a>&nbsp&nbsp </td>
+        <td width="145px" class="arti">${r.artist.name}</td>
+        <td width="9%"class='yea'>${r.year }</td> 
+        <td width="145px">${r.genre.name }</td>
+        <td width="11%" class='popular'>${r.details.popularity }</td>
+        <td><button class='select' name="select" onclick="snackbar(${r.song_id})">Add</buton></td>          
+    </tr>`;
+    }
         }
-        document.getElementById("ProductSpace").innerHTML = rec;
+        document.getElementById(id).innerHTML = rec;
     }
 
     document.getElementById("tit").addEventListener("click",()=>{sortTable('tit');});
@@ -157,23 +173,20 @@ var radarChart = new Chart(marksCanvas, {
         return 0;
       });}
       document.getElementById('loading').style.display = 'none';
-      show(data);
+      show(data, 'ProductSpace');
     }
     
 
-    function snackbar(r) {
+    function snackbar(song_id) {
       var x = document.getElementById("snackbar");
       x.className = "show";
       setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-      var row = this;
-      playlist+=row;
-      console.log(r);
-    }
+      playlist+=song_id;  }
 
     function songFilter(){
       let fil=data.filter(check);
       document.getElementById("ProductSpace").innerHTML = '';
-      show(fil);
+      show(fil,'ProductSpace');
       }
 
     function check(r) {
@@ -197,6 +210,8 @@ var radarChart = new Chart(marksCanvas, {
     function removeFilter(){
       sortTable('tit');
     }
+
+
 
 
   
