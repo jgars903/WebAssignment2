@@ -265,12 +265,6 @@ margin-left: 25px;
 		max-height: 100%;
 	  }
 	  
-	  .productRecor {
-		flex: 100%;
-		overflow:auto;
-		height:500px;
-	  }
-	  
 	  @media (max-width: 800px) {
 		.productRecord, .song-search {
 		  flex: 100%;

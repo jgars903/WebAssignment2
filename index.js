@@ -38,7 +38,7 @@ async function getapi(api_url){
     function page(r,artist,genre,year,duration,bpm,popularity,energy,danceability,liveness,valence,acousticness,speechiness,loudness){
       var minutes = Math.floor(duration / 60);
       var seconds = duration - minutes * 60;
-      document.getElementById('info').innerHTML=`${r}, ${artist}, ${genre}, ${year}, ${minutes}:${seconds}<br/><h3>Analysis Data:</h3><br/> <ul style="list-style-type:disc"><li>Bpm: ${bpm}</li><br/>
+      document.getElementById('info').innerHTML=`${r}, ${artist}, ${genre}, ${year}, ${minutes}:${seconds}<br/><h2>Analysis Data:</h2><br/> <ul style="list-style-type:disc"><li>Bpm: ${bpm}</li><br/>
       <li>Energy: ${energy}</li><br/>
       <li>Dancebility: ${danceability}</li><br/>
       <li>Liveness: ${liveness}</li><br/>
@@ -63,8 +63,21 @@ var radarChart = new Chart(marksCanvas, {
 });
  }
 
+ function frequent(arr1) {
+  var mf = 1, m = 0, item;
+for (var i=0; i<arr1.length; i++)
+{for (var j=i; j<arr1.length; j++){
+   if (arr1[i] == arr1[j])
+    m++;
+    if (mf<m)
+      {mf=m; 
+      item = arr1[i];}}
+      m=0;}
+return item;
+}
+
     function show(data,id) {
-        let rec='';
+        let rec='',avg=0,yea_n=[],art_n=[],gen_n=[],art_n1,gen_n1;
         for (let r of data) {   
           if(id==='play'&& playlist.includes(r.song_id))     
             {rec += `<tr id='songs'>
@@ -75,6 +88,10 @@ var radarChart = new Chart(marksCanvas, {
         <td width="11%" class='popular'>${r.details.popularity }</td>
         <td><button class='select' name="select" onclick="remove(${r.song_id})">Remove</buton></td>          
     </tr>`;
+      avg+=r.details.popularity;
+      art_n.push(r.artist.name);
+      gen_n.push(r.genre.name);
+      yea_n.push(r.year);
   }
     else if(id!='play'){
       rec += `<tr id='songs'>
@@ -88,6 +105,17 @@ var radarChart = new Chart(marksCanvas, {
     }
         }
         document.getElementById(id).innerHTML = rec;
+        avg=Math.round(avg/playlist.length);
+        art_n1=frequent(art_n)?frequent(art_n):'No Popular Artist';
+        gen_n1=frequent(gen_n)?frequent(gen_n):'No Popular Genre';
+        document.getElementById("playlistInfo").innerHTML=`<h2 id="search">Playlist Info</h2><br/>
+                                                      <ul>
+                                                      <li>Number of Songs: ${playlist.length}</li><br/>
+                                                      <li>Most Popular Artist: ${art_n1}</li><br/>
+                                                      <li>Latest Year: ${Math.max(...yea_n)}</li><br/>
+                                                      <li>Most Popular Genre: ${gen_n1}</li><br/>
+                                                      <li>Average Popularity: ${avg}</li>
+                                                      </ul>`
     }
 
     document.getElementById("tit").addEventListener("click",()=>{sortTable('tit');});
@@ -210,10 +238,16 @@ var radarChart = new Chart(marksCanvas, {
       show(data,'play');
   }
 
+  function clear1(){
+    playlist=[];
+      show(data,'play');
+  }
+
     function removeFilter(){
       sortTable('tit');
     }
 
+    
 
 
 
