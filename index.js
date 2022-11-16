@@ -38,14 +38,14 @@ async function getapi(api_url){
     function page(r,artist,genre,year,duration,bpm,popularity,energy,danceability,liveness,valence,acousticness,speechiness,loudness){
       var minutes = Math.floor(duration / 60);
       var seconds = duration - minutes * 60;
-      document.getElementById('info').innerHTML=`${r}, ${artist}, ${genre}, ${year}, ${minutes}:${seconds}<br/><h2>Analysis Data:</h2><br/> <ul style="list-style-type:disc"><li>Bpm: ${bpm}</li><br/>
-      <li>Energy: ${energy}</li><br/>
-      <li>Dancebility: ${danceability}</li><br/>
-      <li>Liveness: ${liveness}</li><br/>
-      <li>Valence: ${valence}</li><br/>
-      <li>Acousticness: ${acousticness}</li><br/>
-      <li>Speechiness: ${speechiness}</li><br/>
-      <li>Popularity: ${popularity}</li></ul>`;
+      document.getElementById('info').innerHTML=`${r}, ${artist}, ${genre}, ${year}, ${minutes}:${seconds}<br/><h3 class="data" id="analysis">Analysis Data:</h3><br/> <div class="data" style="list-style-type:disc">Bpm: ${bpm}<br/>
+      Energy: ${energy}<br/>
+      Dancebility: ${danceability}<br/>
+      Liveness: ${liveness}<br/>
+      Valence: ${valence}<br/>
+      Acousticness: ${acousticness}<br/>
+      Speechiness: ${speechiness}<br/>
+      Popularity: ${popularity}</div>`;
       var marksCanvas = document.getElementById("radarChart");
 
 var marksData = {
@@ -77,7 +77,7 @@ return item;
 }
 
     function show(data,id) {
-        let rec='',avg=0,yea_n=[],art_n=[],gen_n=[],art_n1,gen_n1;
+        let rec='',avg=0,yea_n=[],art_n=[],gen_n=[],art_n1,gen_n1,max_year;
         for (let r of data) {   
           if(id==='play'&& playlist.includes(r.song_id))     
             {rec += `<tr id='songs'>
@@ -105,17 +105,18 @@ return item;
     }
         }
         document.getElementById(id).innerHTML = rec;
-        avg=Math.round(avg/playlist.length);
+        avg=Math.round(avg/playlist.length)?Math.round(avg/playlist.length):'-';
+        max_year=yea_n.length === 0?'-':Math.max(...yea_n);
         art_n1=frequent(art_n)?frequent(art_n):'No Popular Artist';
         gen_n1=frequent(gen_n)?frequent(gen_n):'No Popular Genre';
         document.getElementById("playlistInfo").innerHTML=`<h2 id="search">Playlist Info</h2><br/>
-                                                      <ul>
-                                                      <li>Number of Songs: ${playlist.length}</li><br/>
-                                                      <li>Most Popular Artist: ${art_n1}</li><br/>
-                                                      <li>Latest Year: ${Math.max(...yea_n)}</li><br/>
-                                                      <li>Most Popular Genre: ${gen_n1}</li><br/>
-                                                      <li>Average Popularity: ${avg}</li>
-                                                      </ul>`
+                                                      <div id="infoPlay">
+                                                      Number of Songs: ${playlist.length}<br/><br/>
+                                                      Most Popular Artist: ${art_n1}<br/><br/>
+                                                      Latest Year: ${max_year}<br/><br/>
+                                                      Most Popular Genre: ${gen_n1}<br/><br/>
+                                                      Average Popularity: ${avg}<br/>
+                                                      </div>`
     }
 
     document.getElementById("tit").addEventListener("click",()=>{sortTable('tit');});
@@ -128,7 +129,7 @@ return item;
       const elements = Array.from(document.getElementsByClassName('thHead'));
         elements.forEach(element => {  element.style.color = 'black';});
 
-        document.getElementById(getid).style.color = '#ff80b3';
+        document.getElementById(getid).style.color = '#8B0000';
         document.getElementById('loading').style.display = 'inline';
         if(getid==='tit')
       {data.sort(function(a, b){
@@ -202,9 +203,15 @@ return item;
 
     function snackbar(song_id) {
       var x = document.getElementById("snackbar");
-      x.className = "show";
-      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
       playlist.push(song_id);  }
+
+      function snackbar_org() {
+        var x = document.getElementById("credits");
+      x.className = "show";
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+        }
 
     function songFilter(){
       let fil=data.filter(check);
@@ -245,6 +252,10 @@ return item;
 
     function removeFilter(){
       sortTable('tit');
+      document.getElementById('title').value='';
+      document.getElementById('artist').value='';
+      document.getElementById('genre').value='';
+      document.getElementById('t').checked=true;
     }
 
     
