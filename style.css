@@ -3,6 +3,11 @@
    font-family:arial;
    color: black;
 }
+
+input:disabled {
+    background-color: grey !important;
+}
+
 .top{
 	margin-left: 250px;
 	background-color: #DC143C;
@@ -179,9 +184,60 @@ a{
   }
   
   @media (max-width: 800px) {
-	.productRecord, .song-search {
-	  flex: 100%;
+	.song-search {
+	  flex: 25%;
 	}
+	.productRecord {
+		flex: 70%;
+	  }
+	  #title,#artist,#genre{
+		width:50%;
+	  }
+	  .topnav{
+		width:800px;
+	  }
+
+	  #tit{
+		padding-right: 30px; 
+	  }
+	  .thHead{
+		font-size: 11px;
+	  }
+
+  }
+
+  @media (max-width: 1326px) {
+	
+	.topnav{
+	  width:800px;
+	}
+	.song-search {
+	  flex: 25%;
+	}
+	.productRecord {
+		flex: 70%;
+		height:450px;
+	  }
+	
+}
+
+
+  @media (max-width: 1920px) {
+	
+	  .topnav{
+		width:1900px;
+	  }
+	  .song-search {
+		flex: 25%;
+	  }
+	  .productRecord {
+		  flex: 70%;
+		  height:980px;
+		}
+		form{
+		   margin: auto;
+		   text-align: center;
+		}
   }
 
   input{
@@ -263,12 +319,6 @@ margin-left: 25px;
 
 	canvas {
 		max-height: 100%;
-	  }
-	  
-	  @media (max-width: 800px) {
-		.productRecord, .song-search {
-		  flex: 100%;
-		}
 	  }
 
 	  #removeAdd{

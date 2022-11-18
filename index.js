@@ -2,6 +2,38 @@ const url="http://www.randyconnolly.com/funwebdev/3rd/api/music/songs-nested.php
 var data;
 var playlist=[];
 
+document.getElementById('artist').disabled = true;
+  document.getElementById('genre').disabled = true;
+  document.getElementById('f2').style.color = "grey";
+  document.getElementById('f3').style.color = "grey";
+
+function disable(){
+if(document.getElementById("t").checked === true){
+  document.getElementById('title').disabled = false;
+  document.getElementById('artist').disabled = true;
+  document.getElementById('genre').disabled = true;
+  document.getElementById('f1').style.color = "black";
+  document.getElementById('f2').style.color = "grey";
+  document.getElementById('f3').style.color = "grey";
+}
+else if(document.getElementById("ar").checked === true){
+  document.getElementById('artist').disabled = false;
+  document.getElementById('title').disabled = true;
+  document.getElementById('genre').disabled = true;
+  document.getElementById('f2').style.color = "black";
+  document.getElementById('f1').style.color = "grey";
+  document.getElementById('f3').style.color = "grey";
+}
+else{
+  document.getElementById('genre').disabled = false;
+  document.getElementById('title').disabled = true;
+  document.getElementById('artist').disabled = true;
+  document.getElementById('f3').style.color = "black";
+  document.getElementById('f2').style.color = "grey";
+  document.getElementById('f1').style.color = "grey";
+}
+}
+
 async function getapi(api_url){
     if(JSON.parse(localStorage.getItem('songs')===null)){
         const response = await fetch(url);

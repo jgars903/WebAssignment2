@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>
@@ -34,9 +35,9 @@
         <div class="song-search">
           <h2 id="search">Basic Song Search</h2>
           <form>
-          <input type="radio" id="t" name="opt" value="title" checked />Title<input type="text" name="title" maxlength="50" size="20px" id="title"/></br>
-	        <input type="radio" name="opt" value="artist"/>Artist<input type="text" name="artist" maxlength="50" size="20px" id="artist"/></br>
-	        <input type="radio" name="opt" value="genre"/>Genre<input type="text" name="genre" maxlength="50" size="20px" id="genre"/></br>
+          <input type="radio" id="t" name="opt" value="title" checked onclick="disable()"/><span id="f1">Title</span><input type="text" name="title" maxlength="50" size="20px" id="title"/></br>
+	        <input type="radio" id="ar" name="opt" value="artist" onclick="disable()"/><span id="f2">Artist</span><input type="text" name="artist" maxlength="50" size="20px" id="artist"/></br>
+	        <input type="radio" id="g" name="opt" value="genre" onclick="disable()"/><span id="f3">Genre</span><input type="text" name="genre" maxlength="50" size="20px" id="genre"/></br>
           <button id="clear" class="add" type="button" onclick="removeFilter()">Clear</button>
           <button id="filter" class="add" type="button" onclick="songFilter()">Filter</button>
           </form>
