@@ -361,10 +361,10 @@ function sortTable(getid) {
             }
             let x = a.details.popularity.toLowerCase();
             let y = b.details.popularity.toLowerCase();
-            if (x < y) {
+            if (x > y) {
                 return -1;
             }
-            if (x > y) {
+            if (x < y) {
                 return 1;
             }
             return 0;
