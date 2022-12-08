@@ -7,33 +7,35 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="true">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-  </script>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <title>Music Player</title>
-</head>
 
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Chart JS CDN link -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
 <body>
-  <script src="artists.json"></script>
-  <script src="genres.json"></script>
-  <script>
-    const art = JSON.parse(artists);
-    const gen = JSON.parse(genres);</script>
+  <!-- Author of code and GitHub link -->
   <div id="credits">Team Members:<br />Julian Garside<br />
    GitHub Link: https://github.com/jgars903/WebAssignment2 </div>
-  <!--Member and team member names-->
 
   <div class="flex-container" id="browse">
-
-    <header>
-      <nav class="topnav">
-        <li><a href="#" onclick="radarChart('playlist','browse'); show(data,'play');">Playlist</a></li>
-        <li><a href="#" onclick="snackbar_org();">Credits</a></li>
-      </nav>
-
+    <!-- Header, Navbar -->
+    <header class="container-fluid">
+      <div class="row">
+        <p class="text-center">  
+          <nav class="topnav">
+            <li><a href="#" onclick="radarChart('playlist','browse'); show(data,'play');">Playlist</a></li>
+            <li><a href="#" onclick="snackbar_org();">Credits</a></li>
+          </nav>
+        </p>
+      </div>
     </header>
 
+    <!-- Form field to search a song -->
     <div class="song-search">
       <h2 id="search">Basic Song Search</h2>
       <form>
@@ -48,6 +50,7 @@
       </form>
     </div>
 
+    <!-- Print the song headings -->
     <div class="productRecord">
       <div class="productNames">
         <h3 class="thHead" id="tit">Title</h3>
@@ -65,6 +68,8 @@
       <table id="ProductSpace"></table>
     </div>
   </div>
+
+  <!-- Message to add the song on the playlist -->
   <div id="snackbar">Songs Added to the Playlist...</div>
   <div id="singleSong" class="flex-container" style="display:none">
     <header>
@@ -72,7 +77,6 @@
         <li><a href="#" onclick="return radarChart('browse','singleSong');">Close View</a></li>
         <li><a href="#" onclick="snackbar_org();">Credits</a></li>
       </nav>
-
     </header>
     <div class="song-search">
       <h2 id="search">Song Information</h2>
@@ -93,9 +97,8 @@
 
     </header>
 
+    <!-- Print the song details -->
     <div class="song-search" id="playlistInfo"></div>
-
-
     <div class="productRecord">
       <div class="productNames">
         <h3 class="thHead" id="tit">Title</h3>
@@ -109,15 +112,20 @@
     </div>
   </div>
 
-
-
-
+  <!-- Footer -->
   <footer>
     <br><br>
     <p style="text-align:center;">©2022 MUSIC PLAYER</p>
-
   </footer>
-  <script type="text/javascript" src="index.js" async></script>
-</body>
 
+  <!-- Load the custom JS and JSON data -->
+  <script type="text/javascript" src="index.js" async></script>
+  <script src="artists.json"></script>
+  <script src="genres.json"></script>
+  <script>
+    const art = JSON.parse(artists);
+    const gen = JSON.parse(genres);
+  </script>
+
+</body>
 </html>
